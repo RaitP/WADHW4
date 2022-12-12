@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const secret = "gdgdhdbcb770785rgdzqws";
+var kood = "";
 const maxAge = 60 * 60;
 const generateJWT = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
@@ -36,6 +37,7 @@ app.post('/api/posts', async(req, res) => {
 });
 
 app.get('/api/posts', async(req, res) => {
+    if (kood !== ""){
     try {
         console.log("get posts request has arrived");
         const posts = await pool.query(
@@ -45,6 +47,7 @@ app.get('/api/posts', async(req, res) => {
     } catch (err) {
         console.error(err.message);
     }
+}
 });
 
 app.get('/api/posts/:id', async(req, res) => {
@@ -119,6 +122,7 @@ app.post('/auth/login', async(req, res) => {
         const validPassword = await bcrypt.compare(password, user.rows[0].password);
         if (!validPassword) return res.status(401).json({ error: "Incorrect password" });
         const token = await generateJWT(user.rows[0].id);
+        kood = token;
         res
             .status(201)
             .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
