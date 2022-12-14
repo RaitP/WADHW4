@@ -1,13 +1,11 @@
 <template>
-  <div class="A Post">
-    <div id="form">
-      <h3>A Post</h3>
-      <label for="body">Body: </label>
-      <input name="body" type="text" id="body" required v-model="post.body" />
-    </div>
-    <div class="container">
-      <button @click="updatePost" class="updatePost">Update Post</button>
-      <button @click="deletePost" class="deletePost">Delete Post</button>
+  <div class="form">
+    <h3>A Post</h3>
+    <label for="body">Body: </label>
+    <input name="body" type="text" id="body" required v-model="post.body" />
+    <div class="buttons">
+      <button @click="updatePost" class="center">Update Post</button>
+      <button @click="deletePost" class="center">Delete Post</button>
     </div>
   </div>
 </template>
@@ -69,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-#form {
+.form {
   max-width: 420px;
   margin: 30px auto;
   background: #5A6267;
@@ -100,15 +98,28 @@ input {
   color: black;
 }
 button {
-  background: gray;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
   border: 0;
   padding: 10px 20px;
-  margin-top: 20px;
-  color: lightgray;
   border-radius: 20px;
 }
-.container {
-  display: flex;
-  justify-content: center;
+
+button:hover {
+  transform: scale(1.05) perspective(1px);
+}
+
+.buttons{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.center{
+  background-color: gray;
+  border: 0;
+  margin-top:  20px;
+  margin-right:  10px;
+  border-radius: 25px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <body>
-    <h2>You are welcomed to write us any time</h2>
+    <h2>You are welcome to write us any time!</h2>
 <br>
 
 <div class="row">
@@ -10,7 +10,7 @@
         <h2>Rait Pommer</h2>
         <p class="title">Peainsener</p>
         <p>rait.pommer@ut.ee</p>
-        <p><button class="button" onclick="window.location.href='https://www.linkedin.com/in/rait-pommer-084671226/';">Contact</button></p>
+        <p><button class="button" onclick="window.open('https://www.linkedin.com/in/rait-pommer-084671226/','_blank')">Contact</button></p>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
         <h2>Cardo Kenten Ross</h2>
         <p class="title">Objektijuht</p>
         <p>cardo.kenten.ross@ut.ee</p>
-        <p><button class="button" onclick="window.location.href='https://www.linkedin.com/in/cardo-kenten-ross-6a282a226/';">Contact</button></p>
+        <p><button class="button" onclick="window.open('https://www.linkedin.com/in/cardo-kenten-ross-6a282a226/','_blank')">Contact</button></p>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
         <h2>Liis Reimand</h2>
         <p class="title">Sekretär</p>
         <p>liis.reimand@ut.ee</p>
-        <p><button class="button" onclick="window.location.href='https://www.linkedin.com/in/liis-reimand-728330250/';">Contact</button></p>
+        <p><button class="button" onclick="window.open('https://www.linkedin.com/in/liis-reimand-728330250/','_blank')">Contact</button></p>
       </div>
     </div>
   </div>

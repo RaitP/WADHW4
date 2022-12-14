@@ -3,7 +3,9 @@
     <h3>Add a Post</h3>
     <label for="body">Body: </label>
     <input name="body" type="text" id="body" required v-model="post.body" />
-    <button @click="addPost" class="addPost">Add Post</button>
+    <div class="buttons">
+      <button @click="addPost" class="center">Add Post</button>
+    </div>
   </div>
 </template>
 
@@ -76,13 +78,28 @@ input {
   color: black;
 }
 button {
-  background: gray;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
   border: 0;
   padding: 10px 20px;
-  margin-top: 20px;
-  color: lightgray;
   border-radius: 20px;
-  align-items: center;
+}
+
+button:hover {
+  transform: scale(1.05) perspective(1px);
+}
+
+.buttons{
+  margin: 0 auto;
   text-align: center;
+}
+
+.center{
+  background-color: gray;
+  border: 0;
+  margin-top:  20px;
+  margin-right:  10px;
+  border-radius: 25px;
 }
 </style>

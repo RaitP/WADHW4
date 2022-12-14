@@ -9,7 +9,7 @@
     <div class="buttons">
       <button @click='this.$router.push("/api/addpost")' class="center">Add post</button>
       <button @click="deleteAll" class="center">Delete all</button>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -94,17 +94,13 @@ body{
   border-radius: 25px;
 }
 
-.center:hover{
+button:hover {
   transform: scale(1.05) perspective(1px);
-  background-color: gray;
-  border: 0;
-  margin: 15px 10px 0 10px;
 }
 
 .buttons{
   margin: 0 auto; 
   text-align: center;
-  margin-bottom: 15px;
 }
 .logoutButton {
   background-color: gray;
@@ -141,15 +137,7 @@ h1 {
   box-shadow: 3px 10px 20px #393738;
   transition: transform .2s
 }
-#post-list {
-  background: #6e8b97;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  padding: 10px 20px;
-  margin: auto;
-  width: 50%;
-  border-radius: 20px;
-}
+
 #post-list ul {
   padding: 0;
 }

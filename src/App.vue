@@ -24,7 +24,8 @@ body{
   min-height:100vh; 
   margin:0; 
   background-color: rgb(233, 233, 233);
-  position:relative; }
+  position:relative;
+}
 
 footer {
   position: absolute;
