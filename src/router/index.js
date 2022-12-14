@@ -5,19 +5,34 @@ import AddPost from "../views/AddPost.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
 import ContactsPage from "../views/ContactsPage.vue";
+import auth from "../auth";
 
 
 
 const routes = [{
         path: '/',
         name: 'LogIn',
-        component: () =>
-            import ("../views/LogIn.vue")
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult) {
+                next('/login')
+            } else {
+                next();
+            }
+        }
     },
     {
         path: "/api/allposts",
         name: "AllPosts",
         component: AllPosts,
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult) {
+                next('/login')
+            } else {
+                next();
+            }
+        }
     },
     {
         path: "/api/apost/:id",
@@ -28,6 +43,14 @@ const routes = [{
         path: "/api/addpost",
         name: "AddPost",
         component: AddPost,
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult) {
+                next('/login')
+            } else {
+                next();
+            }
+        }
     },
     {
         path: "/api/signup",

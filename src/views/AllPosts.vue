@@ -1,16 +1,19 @@
 <template>
-  <button @click='this.$router.push("/api/login")' class="center">Logout</button>
+  <button @click="Logout" class="logoutButton">Logout</button>
   <div class="item" v-for="post in posts" :key="post.id">
     <a class= 'singlepost' :href="'/api/apost/' + post.id">
       <span class="date"> {{ post.date }}  </span><br />
-      <span class="body"> <b>Body:</b> {{ post.body }} </span> <br />
+      <span class="sisu"> {{ post.body }} </span> <br />
     </a>
     </div>
-    <button @click='this.$router.push("/api/addpost")' class="center">Add post</button>
-    <button @click="deleteAll" class="center">Delete all</button>
+    <div class="buttons">
+      <button @click='this.$router.push("/api/addpost")' class="center">Add post</button>
+      <button @click="deleteAll" class="center">Delete all</button>
+  </div>
 </template>
 
 <script>
+
 export default {
   name: "AllPosts",
   data() {
@@ -19,6 +22,23 @@ export default {
     };
   },
   methods: {
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        //console.log('jwt removed:' + auth.authenticated());
+        this.$router.push("/login");
+        //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    },
     fetchPosts() {
       fetch(`http://localhost:3000/api/posts/`)
         .then((response) => response.json())
@@ -36,6 +56,7 @@ export default {
           console.log(e);
         });
       }
+      setTimeout(() => {}, 2000);
       location.reload()
     },
   },
@@ -49,15 +70,65 @@ export default {
 </script>
 
 <style scoped>
+.date{
+  margin-right: 0px;
+  margin-left: 210px;
+}
+
+body{
+  line-height: 1.6;
+  margin: 0;
+  background-color: #869FB2;
+  position: absolute;
+}
+
+
+.center{
+  background-color: gray;
+  border: 0;
+  margin-top:  20px;
+  margin-bottom:  130px;
+  margin-right:  10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 25px;
+}
+
+.center:hover{
+  transform: scale(1.05) perspective(1px);
+  background-color: gray;
+  border: 0;
+  margin: 15px 10px 0 10px;
+}
+
+.buttons{
+  margin: 0 auto; 
+  text-align: center;
+  margin-bottom: 15px;
+}
+.logoutButton {
+  background-color: gray;
+  border-radius: 25px;
+  border: 0;
+  width: 100px;
+  height: 30px;
+  display: block;
+  margin: 15px auto 0 auto;
+}
+
+.logoutButton:hover {
+  transform: scale(1.05) perspective(1px)
+}
+
 h1 {
   font-size: 20px;
 }
-a {
+
+.singlepost{
   text-decoration: none;
+  color: black;
 }
-a:hover {
-  text-decoration: underline;
-}
+
 .item {
   background-color: #F4F5F5;
   width: 300px;
@@ -88,5 +159,12 @@ a:hover {
   margin-top: 10px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.7);
+}
+
+section {
+  padding: 10px 15px;
+  margin: 10px;
+  display: block;
+  text-align: center;
 }
 </style>

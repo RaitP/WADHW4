@@ -1,5 +1,10 @@
 # wadhw4
 
+# Set up database
+1. Open database.js
+2. Change password to your postgres password
+3. If needed change other aspects aswell 
+
 ## Project setup
 ```
 npm install
@@ -14,6 +19,3 @@ npm run serve
 ```
 npm start
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

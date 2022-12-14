@@ -76,8 +76,8 @@ nav a {
 footer {
   text-align: center;
   background-color: #5A6267;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
   bottom:0;
 }
