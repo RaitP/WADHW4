@@ -1,6 +1,4 @@
-# wadhw4
-
-# Set up database
+## Set up database
 1. Open database.js
 2. Change password to your postgres password
 3. If needed change other aspects aswell 
